@@ -1,0 +1,28 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: parking-app-20191203-create-table-client
+      author: jose.luiz
+      changes:
+      - sqlFile:
+          encoding: utf8
+          path: sqls/20191203-create-table-client.sql
+          relativeToChangelogFile: true
+
+  - changeSet:
+      id: parking-app-20191203-create-table-user
+      author: jose.luiz
+      changes:
+      - sqlFile:
+          encoding: utf8
+          path: sqls/20191203-create-table-user.sql
+          relativeToChangelogFile: true
+
+  - changeSet:
+      id: parking-app-20191203-create-table-permission
+      author: jose.luiz
+      changes:
+      - sqlFile:
+          encoding: utf8
+          path: sqls/20191203-create-table-permission.sql
+          relativeToChangelogFile: true
