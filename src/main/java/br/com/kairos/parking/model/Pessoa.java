@@ -1,35 +1,35 @@
 package br.com.kairos.parking.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario {
+@Table(name = "pessoa")
+public class Pessoa {
     
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
     
+    @NotNull
     private String nome;
     
-    private String email;
-    
-    private String senha;
-    
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_usuario")
-    private TipoUsuario tipo;
-    
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_permissao", joinColumns = @JoinColumn(name = "codigo_usuario"), inverseJoinColumns = @JoinColumn(name = "codigo_permissao"))
-    private List<Permissao> permissoes;
+    @Embedded
+    private Endereco endereco;
     
     @NotNull
     private Boolean ativo;
+    
+    @JsonIgnoreProperties("pessoa")
+    @Valid
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Contato> contatos;
     
     public Long getCodigo() {
         return this.codigo;
@@ -47,36 +47,12 @@ public class Usuario {
         this.nome = nome;
     }
     
-    public String getEmail() {
-        return this.email;
+    public Endereco getEndereco() {
+        return this.endereco;
     }
     
-    public void setEmail(final String email) {
-        this.email = email;
-    }
-    
-    public String getSenha() {
-        return this.senha;
-    }
-    
-    public void setSenha(final String senha) {
-        this.senha = senha;
-    }
-    
-    public TipoUsuario getTipo() {
-        return this.tipo;
-    }
-    
-    public void setTipo(final TipoUsuario tipo) {
-        this.tipo = tipo;
-    }
-    
-    public List<Permissao> getPermissoes() {
-        return this.permissoes;
-    }
-    
-    public void setPermissoes(final List<Permissao> permissoes) {
-        this.permissoes = permissoes;
+    public void setEndereco(final Endereco endereco) {
+        this.endereco = endereco;
     }
     
     public Boolean getAtivo() {
@@ -85,6 +61,20 @@ public class Usuario {
     
     public void setAtivo(final Boolean ativo) {
         this.ativo = ativo;
+    }
+    
+    public List<Contato> getContatos() {
+        return this.contatos;
+    }
+    
+    public void setContatos(final List<Contato> contatos) {
+        this.contatos = contatos;
+    }
+    
+    @JsonIgnore
+    @Transient
+    public boolean isInativo() {
+        return !this.ativo;
     }
     
     @Override
@@ -106,7 +96,7 @@ public class Usuario {
         if (this.getClass() != obj.getClass()) {
             return false;
         }
-        final Usuario other = (Usuario) obj;
+        final Pessoa other = (Pessoa) obj;
         if (this.codigo == null) {
             if (other.codigo != null) {
                 return false;

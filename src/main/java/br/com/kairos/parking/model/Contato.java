@@ -1,35 +1,31 @@
 package br.com.kairos.parking.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario {
+@Table(name = "contato")
+public class Contato {
     
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
     
+    @NotEmpty
     private String nome;
     
+    @Email
+    @NotNull
     private String email;
     
-    private String senha;
+    @NotEmpty
+    private String telefone;
     
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_usuario")
-    private TipoUsuario tipo;
-    
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_permissao", joinColumns = @JoinColumn(name = "codigo_usuario"), inverseJoinColumns = @JoinColumn(name = "codigo_permissao"))
-    private List<Permissao> permissoes;
-    
-    @NotNull
-    private Boolean ativo;
+    @ManyToOne
+    @JoinColumn(name = "codigo_pessoa")
+    private Pessoa pessoa;
     
     public Long getCodigo() {
         return this.codigo;
@@ -55,36 +51,20 @@ public class Usuario {
         this.email = email;
     }
     
-    public String getSenha() {
-        return this.senha;
+    public String getTelefone() {
+        return this.telefone;
     }
     
-    public void setSenha(final String senha) {
-        this.senha = senha;
+    public void setTelefone(final String telefone) {
+        this.telefone = telefone;
     }
     
-    public TipoUsuario getTipo() {
-        return this.tipo;
+    public Pessoa getPessoa() {
+        return this.pessoa;
     }
     
-    public void setTipo(final TipoUsuario tipo) {
-        this.tipo = tipo;
-    }
-    
-    public List<Permissao> getPermissoes() {
-        return this.permissoes;
-    }
-    
-    public void setPermissoes(final List<Permissao> permissoes) {
-        this.permissoes = permissoes;
-    }
-    
-    public Boolean getAtivo() {
-        return this.ativo;
-    }
-    
-    public void setAtivo(final Boolean ativo) {
-        this.ativo = ativo;
+    public void setPessoa(final Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
     
     @Override
@@ -106,7 +86,7 @@ public class Usuario {
         if (this.getClass() != obj.getClass()) {
             return false;
         }
-        final Usuario other = (Usuario) obj;
+        final Contato other = (Contato) obj;
         if (this.codigo == null) {
             if (other.codigo != null) {
                 return false;
@@ -116,5 +96,4 @@ public class Usuario {
         }
         return true;
     }
-    
 }

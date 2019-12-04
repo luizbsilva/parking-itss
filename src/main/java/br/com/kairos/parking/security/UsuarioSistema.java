@@ -2,10 +2,9 @@ package br.com.kairos.parking.security;
 
 import java.util.Collection;
 
+import br.com.kairos.parking.model.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-
-import br.com.kairos.parking.model.Usuario;
 
 public class UsuarioSistema extends User {
     

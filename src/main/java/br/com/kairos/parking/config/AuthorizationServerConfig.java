@@ -1,7 +1,7 @@
 package br.com.kairos.parking.config;
-
 import java.util.Arrays;
 
+import br.com.kairos.parking.config.token.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,18 +17,16 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import br.com.kairos.parking.config.token.CustomTokenEnhancer;
-
 @Profile("oauth-security")
 @Configuration
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    
+
     @Autowired
     private AuthenticationManager authenticationManager;
-    
+
     @Autowired
     private UserDetailsService userDetailsService;
-    
+
     @Override
     public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
@@ -46,12 +44,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenValiditySeconds(1800)
                 .refreshTokenValiditySeconds(3600 * 24);
     }
-    
+
     @Override
     public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         final TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(this.tokenEnhancer(), this.accessTokenConverter()));
-        
+
         endpoints
                 .tokenStore(this.tokenStore())
                 .tokenEnhancer(tokenEnhancerChain)
@@ -59,22 +57,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .userDetailsService(this.userDetailsService)
                 .authenticationManager(this.authenticationManager);
     }
-    
+
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         final JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
         accessTokenConverter.setSigningKey("algaworks");
         return accessTokenConverter;
     }
-    
+
     @Bean
     public TokenStore tokenStore() {
         return new JwtTokenStore(this.accessTokenConverter());
     }
-    
+
     @Bean
     public TokenEnhancer tokenEnhancer() {
         return new CustomTokenEnhancer();
     }
-    
+
 }

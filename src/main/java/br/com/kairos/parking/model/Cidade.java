@@ -3,20 +3,17 @@ package br.com.kairos.parking.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usuario_permissao")
-public class PermissaoUsuario {
+@Table(name = "cidade")
+public class Cidade {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
     
-    @ManyToOne
-    @JoinColumn(name = "codigo_permissao")
-    private Permissao permissao;
+    private String nome;
     
     @ManyToOne
-    @JoinColumn(name = "codigo_usuario")
-    private Usuario usuario;
+    @JoinColumn(name = "codigo_estado")
+    private Estado estado;
     
     public Long getCodigo() {
         return this.codigo;
@@ -26,20 +23,20 @@ public class PermissaoUsuario {
         this.codigo = codigo;
     }
     
-    public Permissao getPermissao() {
-        return this.permissao;
+    public String getNome() {
+        return this.nome;
     }
     
-    public void setPermissao(final Permissao permissao) {
-        this.permissao = permissao;
+    public void setNome(final String nome) {
+        this.nome = nome;
     }
     
-    public Usuario getUsuario() {
-        return this.usuario;
+    public Estado getEstado() {
+        return this.estado;
     }
     
-    public void setUsuario(final Usuario usuario) {
-        this.usuario = usuario;
+    public void setEstado(final Estado estado) {
+        this.estado = estado;
     }
     
     @Override
@@ -61,7 +58,7 @@ public class PermissaoUsuario {
         if (this.getClass() != obj.getClass()) {
             return false;
         }
-        final PermissaoUsuario other = (PermissaoUsuario) obj;
+        final Cidade other = (Cidade) obj;
         if (this.codigo == null) {
             if (other.codigo != null) {
                 return false;
@@ -71,5 +68,4 @@ public class PermissaoUsuario {
         }
         return true;
     }
-    
 }

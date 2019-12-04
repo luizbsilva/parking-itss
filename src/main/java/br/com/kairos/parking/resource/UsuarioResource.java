@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import br.com.kairos.parking.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
@@ -24,7 +25,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.kairos.parking.event.RecursoCriadoEvent;
-import br.com.kairos.parking.model.Usuario;
 import br.com.kairos.parking.repository.UsuarioRepository;
 import br.com.kairos.parking.service.UsuarioService;
 
@@ -44,7 +44,7 @@ public class UsuarioResource {
 	@PostMapping
 	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_USUARIO') and #oauth2.hasScope('write')")
 	public ResponseEntity<Usuario> criar(@Valid @RequestBody final Usuario formulario,
-			final HttpServletResponse response) {
+										 final HttpServletResponse response) {
 		final Usuario usuarioSalva = this.usuarioService.salvar(formulario);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, usuarioSalva.getCodigo()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSalva);

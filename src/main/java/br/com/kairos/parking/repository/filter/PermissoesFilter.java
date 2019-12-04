@@ -1,8 +1,8 @@
 package br.com.kairos.parking.repository.filter;
 
-import java.util.List;
-
 import br.com.kairos.parking.model.Usuario;
+
+import java.util.List;
 
 public class PermissoesFilter {
     
