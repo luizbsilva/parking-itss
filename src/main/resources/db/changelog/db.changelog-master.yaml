@@ -125,3 +125,30 @@ databaseChangeLog:
         encoding: utf8
         path: sqls/20191203-inserir-dados-usuario.sql
         relativeToChangelogFile: true
+
+- changeSet:
+    id: criacao-tabela-marca
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/20191204-criacao-tabela-marca.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: criacao-tabela-veiculo
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/20191204-criacao-tabela-veiculo.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: inserir-permissao-veiculo
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/20191204-inserir-permissao-veiculo.sql
+        relativeToChangelogFile: true
