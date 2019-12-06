@@ -1,5 +1,4 @@
 package br.com.kairos.parking.config;
-import java.util.Arrays;
 
 import br.com.kairos.parking.config.token.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,8 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import java.util.Arrays;
 
 @Profile("oauth-security")
 @Configuration

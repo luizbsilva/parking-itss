@@ -1,0 +1,17 @@
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Ford', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Hyundai', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('John Deere', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Suzuki', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Mitsubishi', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('New Holland', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Mercedes-Benz', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Audi', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Nissan', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Renault', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('VW - Volksvagem', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Volvo', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Land Rover', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Chevrolet- GM', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('BMW', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Honda', true);
+INSERT INTO public.marca_veiculo(nome, ativo) VALUES ('Fiat', true);

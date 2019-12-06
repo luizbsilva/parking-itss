@@ -1,19 +1,18 @@
 package br.com.kairos.parking.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import br.com.kairos.parking.model.Permissao;
 import br.com.kairos.parking.model.PermissaoUsuario;
 import br.com.kairos.parking.model.Usuario;
+import br.com.kairos.parking.repository.PermissaoRepository;
+import br.com.kairos.parking.repository.PermissaoUsuarioRepository;
+import br.com.kairos.parking.repository.filter.PermissaoFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import br.com.kairos.parking.repository.PermissaoRepository;
-import br.com.kairos.parking.repository.PermissaoUsuarioRepository;
-import br.com.kairos.parking.repository.filter.PermissaoFilter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PermissaoService {

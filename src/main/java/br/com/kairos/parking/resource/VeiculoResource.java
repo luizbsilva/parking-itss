@@ -1,11 +1,8 @@
 package br.com.kairos.parking.resource;
 
 import br.com.kairos.parking.event.RecursoCriadoEvent;
-import br.com.kairos.parking.model.Pessoa;
 import br.com.kairos.parking.model.Veiculo;
-import br.com.kairos.parking.repository.PessoaRepository;
 import br.com.kairos.parking.repository.VeiculoRepository;
-import br.com.kairos.parking.service.PessoaService;
 import br.com.kairos.parking.service.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;

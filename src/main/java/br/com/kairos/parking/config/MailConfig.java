@@ -1,14 +1,13 @@
 package br.com.kairos.parking.config;
 
-import java.util.Properties;
-
+import br.com.kairos.parking.config.property.ParkingApiProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import br.com.kairos.parking.config.property.ParkingApiProperty;
+import java.util.Properties;
 
 @Configuration
 public class MailConfig {

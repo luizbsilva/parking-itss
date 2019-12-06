@@ -1,7 +1,6 @@
 package br.com.kairos.parking.service;
 
 import br.com.kairos.parking.model.MarcaVeiculo;
-import br.com.kairos.parking.model.Pessoa;
 import br.com.kairos.parking.model.Veiculo;
 import br.com.kairos.parking.repository.MarcaVeiculoRepository;
 import br.com.kairos.parking.repository.VeiculoRepository;

@@ -152,3 +152,75 @@ databaseChangeLog:
         encoding: utf8
         path: sqls/20191204-inserir-permissao-veiculo.sql
         relativeToChangelogFile: true
+
+- changeSet:
+    id: inserir-marca-veiculo
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/20191204-inserir-marca-veiculo.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: criacao-tabela-patio
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/20191205-criacao-tabela-patio.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: inserir-permissao-patio
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/20191204-inserir-permissao-patio.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: aterar-tabela-pessoa-inseriri-campo-cpf
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/aterar-tabela-pessoa-inseriri-campo-cpf.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: inserir-permissao-estacionamento
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/200191205-inserir-permissao-estacionamento.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: criacao-tabela-estacionamento
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/200191205-criacao-tabela-estacionamento.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: adicionar-campo-duracao-tabela-estacionamento
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/200191205-adicionar-campo-duracao-tabela-estacionamento.sql
+        relativeToChangelogFile: true
+
+- changeSet:
+    id: inserir-permissao-dashboard
+    author: jose.luiz
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: sqls/200191205-inserir-permissao-dashboard.sql
+        relativeToChangelogFile: true

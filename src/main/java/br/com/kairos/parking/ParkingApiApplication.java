@@ -1,11 +1,10 @@
 package br.com.kairos.parking;
 
+import br.com.kairos.parking.config.property.ParkingApiProperty;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
-
-import br.com.kairos.parking.config.property.ParkingApiProperty;
 
 @SpringBootApplication
 @EnableConfigurationProperties(ParkingApiProperty.class)

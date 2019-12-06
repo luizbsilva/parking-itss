@@ -1,15 +1,14 @@
 package br.com.kairos.parking.service;
 
-import java.util.Optional;
-
 import br.com.kairos.parking.model.Usuario;
+import br.com.kairos.parking.repository.UsuarioRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.kairos.parking.repository.UsuarioRepository;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {

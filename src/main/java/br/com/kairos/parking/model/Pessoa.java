@@ -18,6 +18,9 @@ public class Pessoa {
     
     @NotNull
     private String nome;
+
+    @Column(unique=true)
+    private String cpf;
     
     @Embedded
     private Endereco endereco;
@@ -70,7 +73,15 @@ public class Pessoa {
     public void setContatos(final List<Contato> contatos) {
         this.contatos = contatos;
     }
-    
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     @JsonIgnore
     @Transient
     public boolean isInativo() {
