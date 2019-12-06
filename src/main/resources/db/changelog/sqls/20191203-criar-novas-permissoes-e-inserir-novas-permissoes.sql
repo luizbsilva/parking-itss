@@ -13,5 +13,3 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 11);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 12);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 13);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 14);
--- maria
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 11);

@@ -1,7 +1,6 @@
 ALTER TABLE permissao RENAME COLUMN nome TO descricao;
 
-INSERT INTO usuario (nome, email, senha) values ('Administrador', 'admin@desafio.com.br', '$2a$10$X607ZPhQ4EgGNaYKt3n4SONjIv9zc.VMWdEuhCuba7oLAL5IvcL5.');
-INSERT INTO usuario (nome, email, senha) values ('Jose Luiz', 'luiz@desafio.com.br', '$2a$10$Zc3w6HyuPOPXamaMhh.PQOXvDnEsadztbfi6/RyZWJDzimE8WQjaq');
+INSERT INTO usuario (nome, email, senha) values ('Administrador', 'admin@desafio.com.br', '$2a$10$WVXalf9apAtO/CDiAkgBz.kS9faeHtz4fs5BrXWN9vZgX2xf77Oom');
 
 INSERT INTO permissao (codigo, descricao) values (1, 'ROLE_CADASTRAR_CATEGORIA');
 INSERT INTO permissao (codigo, descricao) values (2, 'ROLE_PESQUISAR_CATEGORIA');
@@ -23,8 +22,3 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 5);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 6);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 7);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 8);
-
--- Jose
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 2);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 5);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 8);
